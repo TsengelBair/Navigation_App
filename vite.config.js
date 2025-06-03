@@ -21,7 +21,6 @@ const manifest = {
   ],
   "orientation": "any",
   "display": "standalone",
-  // "dir": "auto",
   "lang": "ru-RU",
   "name": "NavigationApp",
   "short_name": "NavApp",
@@ -32,14 +31,19 @@ const manifest = {
 export default defineConfig({
   plugins: [
     react(), 
+    // Указываем, что помимо реакта используем технологию Vite PWA
     VitePWA({
+    // автообновление 
     registerType: "autoUpdate",
+    // файлы, которые нужно кэшировать
     workbox: {
       globPatterns: ["**/*.{html,css,js,ico,png,svg}"], 
     },
+    // для разработки (игнорируем)
     devOptions: {
       enabled: true // <--- это включает регистрацию SW при разработке!
     },
+    // в манифесте лежат инструкции, как отображать приложение при нативной установке
     manifest: manifest
   })
 
