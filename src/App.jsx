@@ -13,7 +13,7 @@ import passages from './data/passages.js';
 
 export default function App() {
   useEffect(() => {
-    // Предзагрузка всех SVG изображений этажей
+    // Предзагрузка всех SVG изображений этажей, чтобы загрузить этажи единожды при создании приложения
     const preloadImages = async () => {
       try {
         const floorImages = [floor0Image, floor1Image, floor2Image, floor3Image];

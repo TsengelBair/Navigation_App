@@ -5,7 +5,10 @@ import App from './App.jsx'
 
 import { registerSW } from 'virtual:pwa-register'
 
-// при открытии приложения регистрируем service-worker, который будет кэшировать файлы, указанные в globPatterns для возможности оффлайн работы
+// При открытии приложения регистрируем service worker.
+// Он кэширует файлы из globPatterns и обеспечивает оффлайн-работу.
+// Service worker — это фоновый JS-скрипт, который перехватывает запросы
+// и может отдавать ресурсы из кэша, если нет интернета.
 registerSW({ immediate: true })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
